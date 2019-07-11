@@ -11,6 +11,11 @@
       "src": "/icons-512.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "/hero-img.jpg",
+      "type": "image/jpg",
+      "sizes": "1920x1282"
     }
   ],
 
