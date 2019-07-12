@@ -22,6 +22,28 @@
     <!-- Import other AMP Extensions here -->
     <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+    jQuery(window).load(function() {
+        jQuery("body").addClass('all-loaded');
+    });
+
+    // show the given page, hide the rest
+    function show(elementID) {
+        // try to find the requested page and alert if it's not found
+        var ele = document.getElementById(elementID);
+
+        // get all pages, loop through them and hide them
+        var pages = document.getElementsByClassName('page');
+        for(var i = 0; i < pages.length; i++) {
+            pages[i].style.display = 'none';
+        }
+
+        // then show the requested page
+        ele.style.display = 'block';
+    }
+    </script>
     <style amp-custom>
 
     html, body {
@@ -31,6 +53,8 @@
         text-align: center;
         padding: 0;
         margin: 0;
+
+        overflow:hidden;
     }
 
     body {
@@ -49,6 +73,15 @@
         overflow: hidden;
         background-size: cover;
         background-position: center;
+
+        opacity: 0;
+        transition: opacity .5s ease-in;
+        -moz-transition: opacity .5s ease-in;
+        -webkit-transition: opacity .5s ease-in;
+    }
+
+    body.all-loaded {
+        opacity: 1;
     }
 
     h1 {
@@ -63,11 +96,11 @@
 
 
 
-    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 3s; /* Firefox < 16 */
-        -ms-animation: fadein 3s; /* Internet Explorer */
-         -o-animation: fadein 3s; /* Opera < 12.1 */
-            animation: fadein 3s;
+    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 5s; /* Firefox < 16 */
+        -ms-animation: fadein 5s; /* Internet Explorer */
+         -o-animation: fadein 5s; /* Opera < 12.1 */
+            animation: fadein 5s 
     }
 
     .center {
@@ -93,11 +126,11 @@
     }
 
     p {
-        -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
-        -moz-animation: fadein 4s; /* Firefox < 16 */
-            -ms-animation: fadein 4s; /* Internet Explorer */
-            -o-animation: fadein 4s; /* Opera < 12.1 */
-                animation: fadein 4s;
+        -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 5s; /* Firefox < 16 */
+            -ms-animation: fadein 5s; /* Internet Explorer */
+            -o-animation: fadein 5s; /* Opera < 12.1 */
+                animation: fadein 5s;
     }
 
     .social {
@@ -124,12 +157,20 @@
         padding: 0.5em;
         margin: 0.4em;
 
-        -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
-        -moz-animation: fadein 5s; /* Firefox < 16 */
-            -ms-animation: fadein 5s; /* Internet Explorer */
-            -o-animation: fadein s; /* Opera < 12.1 */
-                animation: fadein 5s;
+        -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
+        -moz-animation: fadein 6s; /* Firefox < 16 */
+            -ms-animation: fadein 6s; /* Internet Explorer */
+            -o-animation: fadein 6s; /* Opera < 12.1 */
+                animation: fadein 6s;
 
+    }
+
+    .transform {
+        -webkit-transition: fadein 3s;  
+        -moz-transition: fadein 3s;
+        -o-transition: fadein 3s;
+        -ms-transition: fadein 3s;
+        transition: fadein 3s;
     }
 
 @media only screen and (max-width: 768px) {
@@ -239,6 +280,37 @@
         to   { opacity: 1; }
     }
 
+
+    @keyframes fadeout {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
+
+    /* Firefox < 16 */
+    @-moz-keyframes fadeout {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
+
+    /* Safari, Chrome and Opera > 12.1 */
+    @-webkit-keyframes fadeout {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
+
+    /* Internet Explorer */
+    @-ms-keyframes fadeout {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
+
+    /* Opera < 12.1 */
+    @-o-keyframes fadeout {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
+
+
     </style>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
  
@@ -247,21 +319,21 @@
     <link rel="manifest" href="/manifest.json">
     <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "http://jazerbarclay.com",
       "@type": "Webpage",
-      "url": "https://www.example.com",
+      "url": "https://www.jazerbarclay.com",
       "name": "Jazer Barclay",
       "headline": "Jazer Barclay",
       "description": "Software Developer",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.jazer.co.uk/"
+        "@id": "https://www.jazerbarclay.com/"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Jazer Barclay",
         "logo": {
-          "url": "https://www.jazer.co.uk/icon.png",
+          "url": "https://www.jazerbarclay.com/icon.png",
           "width": 192,
           "height": 192,
           "@type": "ImageObject"
@@ -269,7 +341,7 @@
       },
       "image": {
         "@type": "ImageObject",
-        "url": "https://www.jazer.co.uk/hero-img.jpg",
+        "url": "https://www.jazerbarclay.com/hero-img.jpg",
         "width": 1920,
         "height": 1282
       }
@@ -290,10 +362,10 @@
     <symbol id="icon-person" viewBox="0 0 20 20"><path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path></symbol>
 </symbol>
   </svg>
-    <div class="center">
+    <div id="home" class="center page">
         <h1>Jazer Barclay</h1>
         <hr>
-        <p>Software Engineer, Business Builder, Content Creator</p>
+        <p>Software Engineer, Maker, Content Creator</p>
         <p>"Balance and Perspective"</p>
         <hr>
         <div class="social">
@@ -312,10 +384,13 @@
             <a href="https://www.youtube.com/channel/UC63UbgcNHrPS2Fr1tPPeimQ" target="_blank">
                 <svg viewBox="0 0 100 100"><use xlink:href="#icon-youtube"></use></svg>
             </a>
-            <a href="https://www.jazerbarclay.com/#">
+            <a href="#" onclick="show('info');">
                 <svg viewBox="0 0 100 100"><use xlink:href="#icon-right"></use></svg>
             </a>
         </div>
+    </div>
+    <div id="info" class="center page" style="display:none">
+        Content of page 2
     </div>
     <amp-install-serviceworker src="/sw.js"
                                data-iframe-src="install-sw.html"
