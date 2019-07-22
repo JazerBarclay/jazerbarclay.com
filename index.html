@@ -48,6 +48,14 @@
 
     html, body {
         background-color: black;
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("hero-img.jpg");
+        background-size: cover;
+        background-position: center;
+
+        transition: opacity .5s ease-in;
+        -moz-transition: opacity .5s ease-in;
+        -webkit-transition: opacity .5s ease-in;
+
         color: #D2D2D2;
         font-family: 'Montserrat', sans-serif;
         text-align: center;
@@ -65,17 +73,10 @@
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-
-        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("hero-img.jpg");
-
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
+        height: 200vh;
 
         opacity: 0;
-        transition: opacity .5s ease-in;
-        -moz-transition: opacity .5s ease-in;
-        -webkit-transition: opacity .5s ease-in;
+
     }
 
     body.all-loaded {
@@ -403,10 +404,17 @@
 </symbol>
   </svg>
     <div id="home" class="center page">
+        <img src="img/compressed_profile.jpg" />
         <h1>Jazer Barclay</h1>
         <hr>
-        <p>Software Engineer, Maker, Content Creator</p>
-        <p>"Balance and Perspective"</p>
+        <p style="max-width: 500px;">
+            I am a Full Stack software developer with industry experience building applications, websites and web applications.
+        <p style="max-width: 500px;">
+            I specialize in Java and NodeJS and have professional experience working with PostgreSQL.
+        </p>
+        <p style="max-width: 500px;">
+            Check out all my projects below!
+        </p>
         <hr>
         <div class="social">
             <a href="https://www.github.com/JazerBarclay" target="_blank" rel="noreferrer">
@@ -424,32 +432,6 @@
             <a href="https://www.youtube.com/channel/UC63UbgcNHrPS2Fr1tPPeimQ" target="_blank" rel="noreferrer">
                 <svg viewBox="0 0 100 100"><use xlink:href="#icon-youtube"></use></svg>
             </a>
-            <a href="#" onclick="show('info');">
-                <svg viewBox="0 0 100 100"><use xlink:href="#icon-user"></use></svg>
-            </a>
-        </div>
-    </div>
-    <div id="info" class="center page" style="display:none">
-        <img src="img/compressed_profile.jpg" />
-        <h2>Jazer Barclay</h2>
-        <hr>
-        <p style="max-width: 500px;">
-            I am a Full Stack software developer with industry experience building applications, websites and web applications.
-        </p></p>
-        <p style="max-width: 500px;">
-            I specialize in Java and NodeJS and have professional experience working with PostgreSQL.
-        </p>
-        <p style="max-width: 500px;">
-            Check out all my latest projects with the link below
-        </p>
-        <hr>
-        <div class="social">
-                <a href="#" onclick="show('home');">
-                    <svg viewBox="0 0 100 100"><g transform="rotate(180 50 50)"><use xlink:href="#icon-right"></use></g></svg>
-                </a>
-                <a href="projects.html">
-                        <svg viewBox="0 0 100 100"><use xlink:href="#icon-stack"></use></svg>
-                </a>
         </div>
     </div>
     <amp-install-serviceworker src="/sw.js"
