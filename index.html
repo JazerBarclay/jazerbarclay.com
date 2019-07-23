@@ -139,10 +139,43 @@
     </div>
     <svg style="margin-top: -10em" viewBox="0 0 100 100"><use xlink:href="#icon-chevron-down"></use></svg>
 
-    <div class="page" style="justify-content: flex-start;">
+    <div id="projects" class="page" style="justify-content: flex-start;">
         <h2>Projects</h2>
-    </div>
+        <div id="jb-project" class="project-card">
+            <div class="project-image" style="background-color: #000"><img src="img/jb_thumbnail.png" /></div>
+                <div class="project-desc">
+                <h3>My Website</h3>
+                <hr>
+                <p>An AMP ready example landing page</p>
+                <p>
+                    I wanted to test out the new AMP markup that Google is using for indexing 
+                    pages since July 2019. As the hosting for this site doesn't support 
+                    http/2 so far, I can only go so far with checking all the requirements 
+                    however on my dev site, it gets 100's across the board
+                </p>
+                <br>
+                <p>Uses: <span>HTML</span><span>CSS</span><span>JS</span></p>
+            </div>
+        </div>
 
+        <div id="raven-project" class="project-card">
+            <div class="project-image" style="background-color: #25292c"><img src="img/raven_thumbnail.png" /></div>
+                <div class="project-desc">
+                <h3>Raven</h3>
+                <hr>
+                <p>A simple webhook to push notification system</p>
+                <p>
+                    Automation is getting really big and with services like IFTTT, Zapier and 
+                    Siri Shortcuts, we can control any open web API and service however there 
+                    is no method of receiving a push from an outside service that is cross platorm
+                    so in an effort to make it, raven is now in development.
+                </p>
+                <br>
+                <p>Uses: <span>Flutter</span><span>NodeJS</span><span>Express</span><span>Firebase</span></p>
+            </div>
+        </div>
+
+    </div>
     <amp-install-serviceworker src="/sw.js"
                                data-iframe-src="install-sw.html"
                                layout="nodisplay">
