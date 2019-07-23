@@ -55,37 +55,53 @@
     }
 
     html {
+        max-height: 100vh;
+    }
 
-        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url("hero-img.jpg");
+    html:before {
+        content: "";
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url("hero-img.jpg");
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
         background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-
     }
 
     body {
+        z-index: 0;
         min-height: 100vh;
         list-style: none;
-        display: flex;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        align-items: center;
-        justify-content: center;
 
         transition: opacity .5s ease-in;
         -moz-transition: opacity .5s ease-in;
         -webkit-transition: opacity .5s ease-in;
 
         opacity: 0;
-
     }
 
     body.all-loaded {
         opacity: 1;
     }
+
+    .page {
+        min-height: 95vh;
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 
     img {
         width: 300px;
@@ -111,27 +127,6 @@
         font-weight: 700;
         letter-spacing: 0.65rem;
 
-
-
-    -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 5s; /* Firefox < 16 */
-        -ms-animation: fadein 5s; /* Internet Explorer */
-         -o-animation: fadein 5s; /* Opera < 12.1 */
-            animation: fadein 5s 
-    }
-
-    h2 {
-        text-transform: uppercase;
-        text-align: center;
-        color: #FFF;
-        font-family: 'Roboto', sans-serif;
-        font-size: 3em;
-        line-height: 1.175;
-        font-weight: 700;
-        letter-spacing: 0.65rem;
-
-
-
     -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 5s; /* Firefox < 16 */
         -ms-animation: fadein 5s; /* Internet Explorer */
@@ -152,8 +147,7 @@
         color: red;
         background-color: rgba(210, 210, 210, 0.6);;
         border: none;
-        margin-top: 25px;
-        margin-bottom: 25px;
+        max-width: 300px;
 
         -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
            -moz-animation: fadein 3s; /* Firefox < 16 */
@@ -225,13 +219,6 @@
         letter-spacing: 0.55rem;
     }
 
-    h2 {
-        font-size: 2em;
-        line-height: 1.175;
-        font-weight: 500;
-        letter-spacing: 0.55rem;
-    }
-
     p {
         font-size: 1em;
     }
@@ -297,13 +284,6 @@
         letter-spacing: 0.75rem;
     }
 
-    h2 {
-        font-size: 3.5em;
-        line-height: 1.175;
-        font-weight: 900;
-        letter-spacing: 0.75rem;
-    }
-
     p {
         font-size: 1.3em;
     }
@@ -358,21 +338,21 @@
     <link rel="manifest" href="/manifest.json">
     <script type="application/ld+json">
     {
-      "@context": "http://jazer.co.uk",
+      "@context": "https://jazerbarclay.com",
       "@type": "Webpage",
-      "url": "http://jazer.co.uk",
+      "url": "https://jazerbarclay.com",
       "name": "Jazer Barclay",
       "headline": "Jazer Barclay",
       "description": "Software Developer",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://jazer.co.uk"
+        "@id": "https://jazerbarclay.com"
       },
       "publisher": {
         "@type": "Organization",
         "name": "Jazer Barclay",
         "logo": {
-          "url": "http://jazer.co.uk/icon.png",
+          "url": "https://jazerbarclay.com/icon.png",
           "width": 192,
           "height": 192,
           "@type": "ImageObject"
@@ -380,7 +360,7 @@
       },
       "image": {
         "@type": "ImageObject",
-        "url": "http://jazer.co.uk/hero-img.jpg",
+        "url": "http://jazerbarclay.com/hero-img.jpg",
         "width": 1920,
         "height": 1282
       }
@@ -405,6 +385,7 @@
         c-0.318,0-0.576,0.257-0.576,0.575C2.151,3.779,2.409,4.036,2.727,4.036z"></path></symbol> 
 </symbol>
   </svg>
+    
     <div id="home" class="center page">
         <img src="img/compressed_profile.jpg" />
         <h1>Jazer Barclay</h1>
@@ -436,6 +417,11 @@
             </a>
         </div>
     </div>
+
+    <div class="page">
+        <h2>Projects</h2>
+    </div>
+
     <amp-install-serviceworker src="/sw.js"
                                data-iframe-src="install-sw.html"
                                layout="nodisplay">
